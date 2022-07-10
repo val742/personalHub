@@ -3,11 +3,9 @@
 import navItemArray from "./navItems.js"
 
 var isNavOpen = false;
-var openPage;
-var nextPage;
 
-console.log(openPage)
-console.log(nextPage)
+// console.log(openPage)
+// console.log(nextPage)
 
 if (isNavOpen == true){
 document.querySelector('.sidenav-overlay').setAttribute("style", "block")}
@@ -40,8 +38,18 @@ const navItemList = navItemArray.map(function (navitem) {
     return navList;
 });
 
+const contentList = navItemArray.map(function (items){
+    let itemlist = document.createElement("div");
+    itemlist.setAttribute("id", items.id);
+    itemlist.innerHTML = items.content;
+
+    return itemlist;
+});
+
+
+
 // parallax setup
-const parallax = (content=nextPage, picture1="./images/code.jpg", 
+const parallax = (content, picture1="./images/code.jpg", 
                            picture2="./images/code2.jpg") => {
     
     let newContent = (
@@ -67,14 +75,16 @@ const parallax = (content=nextPage, picture1="./images/code.jpg",
 
 const navButton = (id, content) =>{
     const selected = navItemArray.find(id => id);
-    openPage = id;
+    nextPage = id;
 }
 
+console.log(contentList[0].innerHTML);
+var openPage=contentList[0].innerHTML;
+var nextPage;
 
 
-
-siteContent.innerHTML = navItemArray;
-siteContent.innerHTML = parallax();
+// siteContent.innerHTML = navItemArray;
+siteContent.innerHTML = parallax(openPage);
 
 // Required Material listeners
 document.addEventListener('DOMContentLoaded', function() {

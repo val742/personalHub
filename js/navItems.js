@@ -35,7 +35,7 @@ const projects = new NavItem(
 
         <!-- Project 1 -->
             <section class="project-item">
-                <img src="images/thumbnail.jpg" alt="coffee cup on a desk">
+                <!--<img src="images/thumbnail.jpg" alt="coffee cup on a desk">-->
                 <h3>Project Name</h3>
                 <p>Summary or description of the project and/or your role in it. Add as many paragraphs as you need.</p>
                 <a href="#" target="_blank">View project / case study</a>
@@ -43,7 +43,7 @@ const projects = new NavItem(
         <!-- End of Project block. -->
         <!-- Project 2 -->
         <section class="project-item">
-            <img src="images/thumbnail.jpg" alt="coffee cup on a desk">
+        <!--<img src="images/thumbnail.jpg" alt="coffee cup on a desk">-->
             <h3>Project Name</h3>
             <p>Summary or description of the project and/or your role in it. Add as many paragraphs as you need.</p>
             <a href="#" target="_blank">View project / case study</a>
