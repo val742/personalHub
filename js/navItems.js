@@ -10,7 +10,7 @@ const aboutMePage = new NavItem(
             <div class="container">
 
                 <h1>Valores Medina</h1>
-                <h2>Moderator / Ex-IT</h2>
+                <h3>Software Developer / Former IT</h3>
 
                 <p>
                 4 years’ experience as
@@ -59,7 +59,6 @@ const workExperience = new NavItem(
     "Work Experience",
     `<!-- ***********************  WORK EXPERIENCE  *********************** -->
     <section class="work-experience">
-    <div class="content-wrap  item-details divider">
       <h2>Work Experience</h2>
       <section class="job-item">
         <div>
