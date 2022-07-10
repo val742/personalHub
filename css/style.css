@@ -1,0 +1,7 @@
+.parallaxImage {
+  background-image: url(../images/code.jpg);
+  background-size: cover;
+  background-position: center 80%;
+  padding-right: 40%;
+  padding-bottom: 20%;
+}
