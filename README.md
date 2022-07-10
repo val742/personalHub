@@ -1,16 +1,8 @@
 Welcome!
 
 This is the host repo for my personal website.
-<<<<<<< HEAD
 
 For any questions feel free to ask,
 stay safe and keep on keeping on.
 
-===============================================
-\__
-.,-;-;-,. /'_\
- _/_/_/_|_\_\) /
-'-<_><_><_><_>=/\
- `/_/====/\_/-'\_\
- "" "" ""
-===============================================
+<embed src="./images/Sinature_val.txt">
