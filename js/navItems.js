@@ -175,5 +175,9 @@ const education = new NavItem(
 
 
 const navItemArray = [aboutMePage, projects, workExperience, education];
-
+navItemArray.forEach(
+  function(item, index){
+    item.indexNum = index;
+  }
+)
 export default navItemArray;

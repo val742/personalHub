@@ -3,6 +3,14 @@
 import navItemArray from "./navItems.js"
 
 var isNavOpen = false;
+var currentPageNumber = (document.cookie);
+currentPageNumber = currentPageNumber.valueOf()
+
+if(currentPageNumber == ""){
+  currentPageNumber = 0;
+}else if(currentPageNumber == 0){
+}
+console.log("Start Log: ", currentPageNumber)
 
 // console.log(openPage)
 // console.log(nextPage)
@@ -16,11 +24,15 @@ document.querySelector('.sidenav-overlay').setAttribute("style", "none");}
 
 const listContent = document.querySelector(".listContent");
 const siteContent = document.querySelector(".maincontent");
-const currentContent = document.querySelector(".currentContent");
 
-const refreshSite = function(part2, ...args){
-  siteContent.innerHTML = args[0] + part2 + args[1];}
-  
+const contentList = navItemArray.map(function (items){
+  let itemlist = document.createElement("div");
+  itemlist.setAttribute("id", items.id);
+  itemlist.innerHTML = items.content;
+
+  return itemlist;
+});
+
 // parallax setup
 const parallax_pt1 = function(picture1="./images/code.jpg") {
     let Content = (`
@@ -32,7 +44,7 @@ const parallax_pt1 = function(picture1="./images/code.jpg") {
     `);
     return Content;}
 
-const parallax_pt2 = function(content) {
+const parallax_pt2 = function(content=navItemArray[currentPageNumber].innerHTML) {
     let Content = (`
     <div class="section blue lighten-4">
       <div class="black-text lighten-text-4">
@@ -64,14 +76,21 @@ const changePage = function (pageID){
     const desiredItem = navItemArray.find(navPages => navPages.id == pageID);
     // console.log(desiredItem)
     // console.log(contentBlock)
-    console.log(desiredItem.content);
-    refreshSite(desiredItem.content, desiredItem.image1, desiredItem.image2,);
-    
+    // console.log(desiredItem.content);
+    // let indexNumber = desiredItem.indexNum;
+    // refreshSite(desiredItem.content, desiredItem.image1, desiredItem.image2,);
+    currentPageNumber = desiredItem.indexNum;
+    document.cookie = `${currentPageNumber}; expires=${time.getDate + 1} ${time.getMonth} ${time.getFullYear} `
+    location.reload();
   }catch(e){
     console.log("Error returned",e)
   };
 };
-
+const refreshSite = function(part2, part1, part3){
+  siteContent.innerHTML = parallax_pt1(part1) + parallax_pt2(part2) + parallax_pt3(part3);}
+  
+const currentPage = navItemArray[currentPageNumber]
+refreshSite(currentPage.content, currentPage.image1, currentPage.image2)
 
 // Create list items from nav array
 const navItemList = navItemArray.map(function (navitem) {
@@ -96,15 +115,7 @@ const navItemList = navItemArray.map(function (navitem) {
     return navList;
 });
 
-const contentList = navItemArray.map(function (items){
-    let itemlist = document.createElement("div");
-    itemlist.setAttribute("id", items.id);
-    itemlist.innerHTML = items.content;
-
-    return itemlist;
-});
-
-console.log(contentList[0].innerHTML);
+// console.log(contentList[0].innerHTML);
 // var nextPage;
 
 // siteContent.innerHTML = navItemArray;
@@ -123,18 +134,17 @@ document.addEventListener('DOMContentLoaded', function() {
 navItemList.forEach((navitem) => {
     listContent.append(navitem);
 });
-console.log(parallax_pt1)
-
-var runOnce;
+// console.log(parallax_pt1)
 
 
 //site has ran once trigger
-runOnce = !runOnce;
-  
-if(runOnce){
-  var part1 = parallax_pt1();
-  var part2 = parallax_pt2(contentList[0].innerHTML);
-  var part3 = parallax_pt3();
-  refreshSite(part2, part1, part3);
-  console.log("worked")
-}
+// document.cookie = `${currentPageNumber}`;
+// clear cookies
+// document.cookie = "aboutMe; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+const time = new Date();
+
+
+document.cookie = `${currentPageNumber}; expires=${time.getDate + 1} ${time.getMonth} ${time.getFullYear} `
+
+
+console.log("Ending Log: ", document.cookie)
