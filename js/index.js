@@ -3,14 +3,14 @@
 import navItemArray from "./navItems.js"
 
 var isNavOpen = false;
-var currentPageNumber = (document.cookie);
-currentPageNumber = currentPageNumber.valueOf()
-
-if(currentPageNumber == ""){
-  currentPageNumber = 0;
-}else if(currentPageNumber == 0){
+// console.log(document.cookie.length)
+if (document.cookie.length == 1){
+  var currentPageNumber = document.cookie
+}else{
+  var currentPageNumber = 0
 }
-console.log("Start Log: ", currentPageNumber)
+// currentPageNumber = currentPageNumber.valueOf()
+
 
 // console.log(openPage)
 // console.log(nextPage)
@@ -89,9 +89,14 @@ const changePage = function (pageID){
 const refreshSite = function(part2, part1, part3){
   siteContent.innerHTML = parallax_pt1(part1) + parallax_pt2(part2) + parallax_pt3(part3);}
   
-const currentPage = navItemArray[currentPageNumber]
-refreshSite(currentPage.content, currentPage.image1, currentPage.image2)
+const currentPage = navItemArray[currentPageNumber];
 
+try{
+refreshSite(currentPage.content, currentPage.image1, currentPage.image2);
+}
+catch{
+  console.log("Something's not right. Local cache may need to be cleared to continue.")
+}
 // Create list items from nav array
 const navItemList = navItemArray.map(function (navitem) {
     let navList = document.createElement("li");
@@ -142,9 +147,8 @@ navItemList.forEach((navitem) => {
 // clear cookies
 // document.cookie = "aboutMe; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
 const time = new Date();
-
-
+// console.log(currentPageNumber)
 document.cookie = `${currentPageNumber}; expires=${time.getDate + 1} ${time.getMonth} ${time.getFullYear} `
 
 
-console.log("Ending Log: ", document.cookie)
+// console.log("Ending Log: ", document.cookie)
