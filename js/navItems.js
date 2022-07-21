@@ -180,4 +180,5 @@ navItemArray.forEach(
     item.indexNum = index;
   }
 )
+console.log(navItemArray)
 export default navItemArray;

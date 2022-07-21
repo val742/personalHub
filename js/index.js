@@ -102,10 +102,12 @@ const navItemList = navItemArray.map(function (navitem) {
     let navList = document.createElement("li");
     navList.setAttribute("id", navitem.id);
     navList.classList.add("navItem");
-    
+    var colorPool = ["yellow-text darken-2", "orange-text darken-1", "light-green-text", "white-text"]
+    // var color = colorPool[Math.floor(Math.random() * colorPool.length)];
     navList.innerHTML = `
-    <a id="${navitem.id}" class="btn-flat">${navitem.name}</a>
+    <a id="${navitem.id}" class="btn-flat ${colorPool[navitem.indexNum]}">${navitem.name}</a>
     `;
+    
 
     // console.log(navList.id)
     let button = navList
