@@ -5,3 +5,15 @@
   padding-right: 40%;
   padding-bottom: 20%;
 }
+
+.font_reg {
+  font-family: adobe-garamond-pro,serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font_bold {
+  font-family: adobe-garamond-pro,serif;
+  font-weight: 700;
+  font-style: normal;
+}

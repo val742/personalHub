@@ -20,10 +20,35 @@ document.querySelector('.sidenav-overlay').setAttribute("style", "block")}
 else{
 document.querySelector('.sidenav-overlay').setAttribute("style", "none");}
 
-
+var navItemColors = navItemArray[0].colorArray
+console.log(navItemColors)
 
 const listContent = document.querySelector(".listContent");
 const siteContent = document.querySelector(".maincontent");
+
+const updatePageColors = function(header, footer){
+  // Setup navheader color
+    const navBar = document.querySelector(".navbar");
+    var navBarContent = navBar.getAttribute("class")
+    navBar.setAttribute("class",(navBarContent + " " + header))
+  // Setup footer color
+    const footerBar = document.querySelector(".page-footer");
+    var navBarContent = footerBar.getAttribute("class")
+    footerBar.setAttribute("class",(navBarContent + " " + footer))
+  //
+}
+
+// var testColors = ["blue","yellow darken-2", "orange darken-1"]
+// Setup navheader color
+// const navBar = document.querySelector(".navbar");
+// var navBarContent = navBar.getAttribute("class")
+// navBar.setAttribute("class",(navBarContent + navItemColors[0]))
+// Setup footer color
+// const footerBar = document.querySelector(".page-footer");
+// var navBarContent = footerBar.getAttribute("class")
+// footerBar.setAttribute("class",(navBarContent + " " + navItemColors[4]))
+//
+
 
 const contentList = navItemArray.map(function (items){
   let itemlist = document.createElement("div");
@@ -33,7 +58,8 @@ const contentList = navItemArray.map(function (items){
   return itemlist;
 });
 
-// parallax setup
+
+/////////////// parallax setup
 const parallax_pt1 = function(picture1="./images/code.jpg") {
     let Content = (`
     <div class="parallax-container">
@@ -44,11 +70,12 @@ const parallax_pt1 = function(picture1="./images/code.jpg") {
     `);
     return Content;}
 
-const parallax_pt2 = function(content=navItemArray[currentPageNumber].innerHTML) {
+const parallax_pt2 = function(content=navItemArray[currentPageNumber].innerHTML, 
+                              center, textWrap, textColor) {
     let Content = (`
-    <div class="section blue lighten-4">
-      <div class="black-text lighten-text-4">
-        <div class="row container">
+    <div class="section ${center}">
+      <br>
+        <div class="row container ${textWrap} ${textColor}">
           <div class="col s12 m10 offset-m1">
             <div class="currentContent">
               ${content}
@@ -69,6 +96,8 @@ const parallax_pt3 = function(picture2="./images/code2.jpg") {
     `);
     return Content;
 };
+//////////////////////
+
 
 // Used to change content of page
 const changePage = function (pageID){
@@ -86,16 +115,20 @@ const changePage = function (pageID){
     console.log("Error returned",e)
   };
 };
-const refreshSite = function(part2, part1, part3){
-  siteContent.innerHTML = parallax_pt1(part1) + parallax_pt2(part2) + parallax_pt3(part3);}
+const refreshSite = function(part2, part1, part3, center, textWrap, textColor){
+  siteContent.innerHTML = parallax_pt1(part1) + parallax_pt2(part2, center, textWrap, textColor) + 
+                          parallax_pt3(part3);}
   
-const currentPage = navItemArray[currentPageNumber];
+
 
 try{
-refreshSite(currentPage.content, currentPage.image1, currentPage.image2);
+  const currentPage = navItemArray[currentPageNumber];
+  refreshSite(currentPage.content, currentPage.image1, currentPage.image2, 
+              currentPage.colorArray[1], currentPage.colorArray[2], currentPage.colorArray[3],);
+  updatePageColors(currentPage.colorArray[0], currentPage.colorArray[4], )
 }
-catch{
-  console.log("Something's not right. Local cache may need to be cleared to continue.")
+catch(e){
+  console.log("Something's not right. Local cache may need to be cleared to continue." + e)
 }
 // Create list items from nav array
 const navItemList = navItemArray.map(function (navitem) {

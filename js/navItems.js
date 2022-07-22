@@ -9,10 +9,10 @@ const aboutMePage = new NavItem(
         <header>
             <div class="container">
 
-                <h1>Valores Medina</h1>
-                <h3>Software Developer / Former IT</h3>
+                <h1 class="font_bold">Valores Medina</h1>
+                <h4 class="font_bold">Software Developer / Former IT</h3>
 
-                <p>
+                <p class="font_reg" style="font-size: medium">
                 4 years’ experience as
                 acting overnight team lead, 5 years’ IT customer service, along with earning
                 certifications in HTML, CSS, JavaScript, Python, Java, C#, and SQL.
@@ -21,16 +21,19 @@ const aboutMePage = new NavItem(
         </header>
     `,
     "./images/code.jpg",
-    "./images/code2.jpg"
+    "./images/code2.jpg", 
 );
+// header0, center1, textWrap2, textColor3, footer4
+aboutMePage.setupColorArray("orange", "blue lighten-1", "blue darken-1", "white-text", "red lighten-3")
+
 const projects = new NavItem(
     "projects",
     "Projects",
     `<!-- ********************  PROJECTS / PORTFOLIO  ********************* -->
     <section class="">
         <div class="container">
-            <h2>Featured Projects</h2>
-            <p>View selected projects below. More information can be found at 
+            <h2 class="font_bold">Featured Projects</h2>
+            <p class="font_reg">View selected projects below. More information can be found at 
                 <a href="#">my homepage</a>.</p>
 
         <!-- Project 1 -->
@@ -54,6 +57,9 @@ const projects = new NavItem(
     "./images/code.jpg",
     "./images/code2.jpg"
 );
+// header0, center1, textWrap2, textColor3, footer4
+projects.setupColorArray("orange", "blue lighten-1", "blue darken-1", "white-text", "red lighten-3")
+
 const workExperience = new NavItem(
     "workExperience",
     "Work Experience",
@@ -154,6 +160,9 @@ const workExperience = new NavItem(
     "./images/code.jpg",
     "./images/code2.jpg"
 );
+// header0, center1, textWrap2, textColor3, footer4
+workExperience.setupColorArray("orange", "blue lighten-1", "blue darken-1", "white-text", "red lighten-3")
+
 const education = new NavItem(
     "education",
     "Education",
@@ -172,7 +181,8 @@ const education = new NavItem(
     "./images/code.jpg",
     "./images/code2.jpg"
 );
-
+// header0, center1, textWrap2, textColor3, footer4
+education.setupColorArray("orange", "blue lighten-1", "blue darken-1", "white-text", "red lighten-3")
 
 const navItemArray = [aboutMePage, projects, workExperience, education];
 navItemArray.forEach(
@@ -180,5 +190,5 @@ navItemArray.forEach(
     item.indexNum = index;
   }
 )
-console.log(navItemArray)
+// console.log(navItemArray)
 export default navItemArray;
