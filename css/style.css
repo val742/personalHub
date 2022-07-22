@@ -17,3 +17,7 @@
   font-weight: 700;
   font-style: normal;
 }
+
+.profilePic {
+  border-radius: 5%;
+}

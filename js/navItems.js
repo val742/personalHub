@@ -32,25 +32,30 @@ const projects = new NavItem(
     `<!-- ********************  PROJECTS / PORTFOLIO  ********************* -->
     <section class="">
         <div class="container">
+          <div class="center-align">
             <h2 class="font_bold">Featured Projects</h2>
-            <p class="font_reg">View selected projects below. More information can be found at 
-                <a href="#">my homepage</a>.</p>
+            <p class="font_reg" style="font-size: medium">At the moment, the code has not reached
+            a state to which I am proud to present. I will post updates soon!</p>
+            <!-- <p class="font_reg">View some of my projects below.</p> -->
+          </div>
 
         <!-- Project 1 -->
-            <section class="project-item">
-                <!--<img src="images/thumbnail.jpg" alt="coffee cup on a desk">-->
+            <!-- <section class="project-item">
+                <img src="images/thumbnail.jpg" alt="coffee cup on a desk">
                 <h3>Project Name</h3>
                 <p>Summary or description of the project and/or your role in it. Add as many paragraphs as you need.</p>
                 <a href="#" target="_blank">View project / case study</a>
-            </section>
+            </section> -->
         <!-- End of Project block. -->
         <!-- Project 2 -->
-        <section class="project-item">
-        <!--<img src="images/thumbnail.jpg" alt="coffee cup on a desk">-->
-            <h3>Project Name</h3>
-            <p>Summary or description of the project and/or your role in it. Add as many paragraphs as you need.</p>
-            <a href="#" target="_blank">View project / case study</a>
-        </section>
+            <!-- <section class="project-item">
+                <img src="images/thumbnail.jpg" alt="coffee cup on a desk">
+                <h3>Project Name</h3>
+                <p>Summary or description of the project and/or your role in it. Add as many paragraphs as you need.</p>
+                <a href="#" target="_blank">View project / case study</a>
+            </section> -->
+        <!-- End of Project block. -->
+        <br>
     <!-- End of Project block. -->
         </div>
     </section>`,
