@@ -23,3 +23,24 @@
   width: 100%;
   height: auto;
 }
+
+.job-summary{
+  border-radius: 10px;
+  padding: 5%;
+}
+.job-summary p {
+  padding: 2%;
+}
+.floatingWindow{
+  border-radius: 10px;
+}
+.job-title{
+  border-radius: 25%;
+  text-decoration: underline dotted white;
+  color:#90EE90;
+}
+/* I used the stash mechanic to hide edits */
+
+/* removed from mincss
+ul:not(.browser-default){padding-left:0;list-style-type:disc}ul:not(.browser-default)>li{list-style-type:circle} 
+*/

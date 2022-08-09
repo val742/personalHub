@@ -75,7 +75,7 @@ const parallax_pt2 = function(content=navItemArray[currentPageNumber].innerHTML,
     let Content = (`
     <div class="section ${center}">
       <br>
-        <div class="row container z-depth-4 ${textWrap} ${textColor}">
+        <div class="row container z-depth-4 floatingWindow ${textWrap} ${textColor}">
           <div class="col s12 m10 offset-m1">
             <div class="currentContent">
               ${content}
